@@ -19,15 +19,15 @@
   <meta name="author" content="Dragon Witness">
   <meta name="keywords" content="a b c d e f g">
   
-    <meta name="description" content="加载中...   fetch(&#39;https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;jchmaiqapo&#x2F;issues?state&#x3D;open&amp;per_page&#x3D;50&#39;)   .then(r &#x3D;&gt; r.json())   .then(data &#x3D;&gt; {     const box &#x3D; document.getElementById(&#39;issue-list&#39;);     if (!data ||">
+    <meta name="description" content="加载中...   fetch(&quot;https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;jchmaiqapo&#x2F;issues?state&#x3D;open&amp;per_page&#x3D;50&quot;) .then(r &#x3D;&gt; r.json()) .then(data &#x3D;&gt; {   const box &#x3D; document.getElementById(&#39;issue-list&#39;);   if (!data || data.le">
 <meta property="og:type" content="website">
 <meta property="og:title" content="动态">
 <meta property="og:url" content="https://jchmaiqapo.github.io/jchmaiqapo/issues/index.html">
 <meta property="og:site_name" content="你说见过龙">
-<meta property="og:description" content="加载中...   fetch(&#39;https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;jchmaiqapo&#x2F;issues?state&#x3D;open&amp;per_page&#x3D;50&#39;)   .then(r &#x3D;&gt; r.json())   .then(data &#x3D;&gt; {     const box &#x3D; document.getElementById(&#39;issue-list&#39;);     if (!data ||">
+<meta property="og:description" content="加载中...   fetch(&quot;https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;jchmaiqapo&#x2F;issues?state&#x3D;open&amp;per_page&#x3D;50&quot;) .then(r &#x3D;&gt; r.json()) .then(data &#x3D;&gt; {   const box &#x3D; document.getElementById(&#39;issue-list&#39;);   if (!data || data.le">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-10-01T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-01T09:57:20.416Z">
+<meta property="article:modified_time" content="2026-10-04T07:38:00.840Z">
 <meta property="article:author" content="Dragon Witness">
 <meta property="article:tag" content="a b c d e f g">
 <meta name="twitter:card" content="summary_large_image">
@@ -356,24 +356,24 @@
   <div id="issue-list">加载中...</div>
 
 <script>
-fetch('https://api.github.com/repos/jchmaiqapo/issues?state=open&per_page=50')
-  .then(r => r.json())
-  .then(data => {
-    const box = document.getElementById('issue-list');
-    if (!data || data.length === 0) { box.innerHTML = '<p>暂无内容</p>'; return; }
-    box.innerHTML = data.map(issue => `
-      <div style="border-bottom:1px solid #eee;padding:16px 0;">
-        <h3 style="margin:0 0 8px;">
-          <a href="${issue.html_url}" target="_blank">${issue.title}</a>
-        </h3>
-        <p style="color:#888;font-size:14px;margin:0 0 8px;">
-          ${new Date(issue.created_at).toLocaleDateString()} · #${issue.number}
-        </p>
-        <div style="font-size:15px;line-height:1.7;">${issue.body ? issue.body.substring(0, 200) + (issue.body.length > 200 ? '...' : '') : ''}</div>
-      </div>
-    `).join('');
-  })
-  .catch(e => { document.getElementById('issue-list').innerHTML = '<p>加载失败，请检查网络</p>'; });
+fetch("https://api.github.com/repos/jchmaiqapo/issues?state=open&per_page=50")
+.then(r => r.json())
+.then(data => {
+  const box = document.getElementById('issue-list');
+  if (!data || data.length === 0) { box.innerHTML = '<p>暂无内容</p>'; return; }
+  box.innerHTML = data.map(issue => `
+    <div style="border-bottom:1px solid #eee;padding:16px 0;">
+      <h3 style="margin:0 8px;">
+        <a href="${issue.html_url}" target="_blank">${issue.title}</a>
+      </h3>
+      <p style="color:#888;font-size:14px;margin:0 0 8px;">
+        ${new Date(issue.created_at).toLocaleDateString()} · #${issue.number}
+      </p>
+      <div style="font-size:15px;line-height:1.7;">${issue.body ? issue.body.substring(0, 200) + (issue.body.length > 200 ? '...' : '') : ''}</div>
+    </div>
+  `).join('');
+})
+.catch(e => { document.getElementById('issue-list').innerHTML = '<p>加载失败，请检查网络</p>'; });
 </script>
 
 
